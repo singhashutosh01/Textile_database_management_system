@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{% include 'textmanage/navbar.html' %}
+<html>
+    <head>
+        <title>title</title>    
+        <style>
+            body {
+                background-image: url('static/images/bg1.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+
+        </style>    
+    </head>
+  
+    <body>
+       
+       
+
+       
+            <div class="row">
+                <div class="col-md">
+                    <h5>Party:</h5>
+                    <hr>
+                    <div class="card card-body">
+                        <td><a class="btn btn-primary btn-sm btn-block" href="{% url 'party_bill_delivery_order' %}">Create Order</a></td> 
+                        <table class="table ">
+                            <tr>
+                                <th> </th>
+                                <th>Party ID</th>
+                                <th>GST Number</th>
+                                <th>Meters Received</th>
+                                <th>Meters Delivered</th>
+                                <th>Bill Date</th>
+                            </tr>
+            
+                         
+                            {% for order in orders  %}
+                            <tr>
+                                <td><a class = "btn btn-sm btn-info" href="{%url 'parties' %}">View</a></td>
+                               <td>{{order.party_id_id}}</td> 
+                               <td>{{order.gst_number}}</td> 
+                               <td>{{order.total_meter_received}}</td> 
+                               <td>{{order.total_meter_delivered}}</td>
+                               <td>{{order.bill_date}}</td>
+
+                               <td><a class ="btn btn-sm btn-info" href="">update</a> </td>
+                               <td><a class ="btn btn-sm btn-danger" href="">remove</a> </td>
+                            </tr>
+                           
+                           
+                            {%endfor%}
+
+                        </table>
+                    </div>
+                </div>
+            
+                
+            </div>
+            
+    </body>
+</html>

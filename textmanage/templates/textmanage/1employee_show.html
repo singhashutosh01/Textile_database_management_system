@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{%include 'textmanage/navbar.html' %}
+
+<html>
+    <head>
+        <title>title</title>        
+    </head>
+  
+    <body>
+        
+            <div class="row">
+                <div class="col-md">
+                    <h5>Employee:</h5>
+                    <hr>
+                    <div class="card card-body">
+                        <a class="btn btn-primary  btn-sm btn-block" href="">Create Employee</a>
+                        <table class="table ">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>PIN</th>
+                                <th>Street</th>
+                                <th>City</th>
+                                <th>Designation</th>
+                                <th></th>
+                            </tr>
+
+                            <tr>
+                               <td>{{employees.first_name}}</td> 
+                               <td>{{employees.last_name}}</td> 
+                               <td>{{employees.pin}}</td> 
+                               <td>{{employees.street}}</td>
+                               <td>{{employees.city}}</td> 
+                               <td>{{employees.designation}}</td>  
+                               
+                               <td><a class=" btn btn-sm btn-info" href="">Update</a></td>
+                               <td><a class =" btn btn-sm btn-danger"  href="">Remove</a></td>
+                            </tr>
+
+                            
+                        </table>
+                    </div>
+                </div>
+            
+                
+            </div>
+            
+    </body>
+</html>

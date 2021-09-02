@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+<style>
+	.hello-msg{
+	  font-size: 18px;
+	  color:white;
+	  margin-right: 20px;
+	}
+  
+  </style>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom Website</title>
+	<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+			<nav class="navbar">
+				<img class="logo" src="static/images/logo.png">
+				<ul>
+					<li><a class="active" href="{% url 'home'%}">Home</a></li>
+					<span class="hello-msg" > Hello, {{request.user}} </span>
+					<span> <a  class="hello-msg" href="{% url 'logout' %}"> Logout</a> </span>
+				 
+				</ul>
+			</nav>
+			<div class="center">
+				<h1>SEARCH</h1>
+				
+				<div class="buttons">
+					<button onclick="window.location.href = '{% url 'employee_search' %}';">Employee </button>
+				</div>
+
+				<div class="buttons">
+					<button onclick="window.location.href = '{%url 'parties_search' %}';" >Parties</button>
+				</div>
+
+
+					<div class="buttons">
+						<button onclick="window.location.href = '{%url 'orders_search' %}';"  >Orders</button>
+					</div>
+		
+			</div>			
+			
+	</div>
+</body>
+</html>

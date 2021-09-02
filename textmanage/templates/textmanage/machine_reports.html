@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{% include 'textmanage/navbar.html' %}
+<html>
+    <head>
+        <title>title</title>        
+    </head>
+  
+    <body>
+        
+        <br>
+            <div class = "row">
+                <div class = "col">
+                    <div class="card card-body">
+                        <form method ="get">
+
+                            {{myFilter.form}}
+                            <button class = "btn btn-primary" type="submit">
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                    
+                </div>
+
+            </div>
+        <br>
+
+
+            <div class="row">
+                <div class="col-md">
+                    <h5>Machine Reports:</h5>
+                    <hr>
+                    <div class="card card-body">
+                        <a class="btn btn-primary  btn-sm btn-block" href="">Create Party</a>
+                        <table class="table ">
+                            <tr>
+                                <th> </th>
+                                <th>Mahcine ID</th>
+                                <th>Store name</th>
+                                <th>Part name</th>
+                            </tr>
+            
+                         
+                            {% for maintenance_inventory in machine_reports  %}
+                            <tr>
+                                <td><a class = "btn btn-sm btn-info" href="{%url 'machine_reports' %}">View</a></td>
+                               <td>{{maintenance_inventory.machine_id}}</td> 
+                               <td>{{maintenance_inventory.bill_id}}</td> 
+                               <td>{{maintenance_inventory.part_name}}</td> 
+
+                               <td><a class ="btn btn-sm btn-info" href="">update</a> </td>
+                               <td><a class ="btn btn-sm btn-danger" href="">remove</a> </td>
+                            </tr>
+                           
+                           
+                            {%endfor%}
+
+                        </table>
+                    </div>
+                </div>
+            
+                
+            </div>
+            
+    </body>
+</html>

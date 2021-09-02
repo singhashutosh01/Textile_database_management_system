@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+<html>
+    <head>
+        <title>title</title>     
+       
+    </head>
+  
+    <body >
+        <style>
+            body {
+                background-image: url('static/images/bg1.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+
+        </style>
+        
+        <div class="wrapper">
+           
+            <div >
+                <div class="col-md">
+                    
+                    <hr>
+                    <div class="card card-body">
+                        <table class ="table">
+
+                            <tr>
+                                <td><a class="btn btn-primary btn-sm btn-block" href="{% url 'create_employee' %}">Create Employee</a></td> 
+                                 </tr>
+                        </table>
+                        
+                       <h5>Existing Employees:</h5>
+                        <table class="table ">
+                            <tr>
+                                <th> </th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>PIN</th>
+                            </tr>
+            
+                         
+                            {% for employee in employee_lists  %}
+                            <tr>
+                                <td><a class = "btn btn-sm btn-info" href="{%url 'employee' employee.employee_id %}">View</a></td>
+                               <td>{{employee.first_name}}</td> 
+                               <td>{{employee.last_name}}</td> 
+                               <td>{{employee.pin}}</td> 
+                        
+
+                               <td><a class ="btn btn-sm btn-info" href="">update</a> </td>
+                               <td><a class ="btn btn-sm btn-danger" href="">remove</a> </td>
+                            </tr>
+                           
+                           
+                            {%endfor%}
+
+                        </table>
+                    </div>
+                </div>
+            
+                
+            </div>
+        </div>    
+    </body>
+</html>

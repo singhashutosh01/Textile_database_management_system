@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{% include 'textmanage/navbar.html' %}
+<html>
+    <head>
+        <title>title</title>  
+        <style>
+            body {
+                background-image: url('static/images/bg1.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+
+        </style>      
+    </head>
+  
+    <body>
+    
+        <br>
+        <div class = "row">
+            <div class = "col">
+                <div class="card card-body">
+                    <form method ="get">
+
+                        {{myFilter.form}}
+                        <button class = "btn btn-primary" type="submit">
+                            Search
+                        </button>
+                    </form>
+                </div>
+                
+            </div>
+
+        </div>
+    <br>
+            <div class="row">
+                <div class="col-md">
+                    <h5>Party:</h5>
+                    <hr>
+                    <div class="card card-body">
+                        <a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_party' %}">Create Party</a>
+                        <table class="table ">
+                            <tr>
+                                <th> </th>
+                                <th>Party ID</th>
+                                <th>Party Name</th>
+                                <th>GST Number</th>
+                            </tr>
+            
+                         
+                            {% for party in parties  %}
+                            <tr>
+                                <td><a class = "btn btn-sm btn-info" href="{%url 'parties' %}">View</a></td>
+                               <td>{{party.party_id}}</td> 
+                               <td>{{party.party_name}}</td> 
+                               <td>{{party.gst_number}}</td> 
+                        
+
+                               <td><a class ="btn btn-sm btn-info" href="">update</a> </td>
+                               <td><a class ="btn btn-sm btn-danger" href="">remove</a> </td>
+                            </tr>
+                           
+                           
+                            {%endfor%}
+
+                        </table>
+                    </div>
+                </div>
+            
+                
+            </div>
+            
+    </body>
+</html>

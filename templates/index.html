@@ -1,0 +1,11 @@
+{% if latest_employee %}
+    <ul>
+        { % for employee in latest_employee %}
+            <li>
+                <a href="/textmanage/ {{employee.pin}}/">{{ employee.first_name }}</a>
+            </li>
+            {%endfor%}
+    </ul>
+{% else %}
+ <p> NO employee avbl.</p>
+ {%endif%}
